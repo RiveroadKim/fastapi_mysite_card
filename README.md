@@ -23,3 +23,7 @@ fastapi, jinja2, sqlalchemy, mariadb, docker, docker-compose, aws, langchain, ap
     - 쿼리스트링 : member라는 키워드로 부터 id=abc1234를 전달
     - 단점 : 주소창에 노출됨(패스워드 같은 보안)
     - 숨겨야하는 정보들(post 방식)
+
+### 카카오 나에게 톡 보내기
+- 인증코드 URL<Base> : https://kauth.kakao.com/oauth/authorize?client_id={REST API 키}&redirect_uri={Redirect URI}&response_type=code&scope=talk_message
+- 인증코드 URL<Me> : https://kauth.kakao.com/oauth/authorize?client_id=d8ea9d83b39a7d3946f273f2d0df02eb&redirect_uri=http://127.0.0.1:8000&response_type=code&scope=talk_message
