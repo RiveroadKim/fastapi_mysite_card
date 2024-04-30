@@ -1,6 +1,10 @@
 # fastapi_mysite_card
 fastapi, jinja2, sqlalchemy, mariadb, docker, docker-compose, aws, langchain, apscheduler, uvicorn, requests
 
+# requirements.txt 에 있는 모듈 설치하는 법
+pip install -r requirements.txt
+# 설치되어 있는 모듈 확인해서 requirements.txt로 만들기(비추)
+pip freeze > requirements.txt
 
 ### 라이브러리 설명
 1. fastapi: 웹 프레임워크 + API
@@ -23,6 +27,22 @@ fastapi, jinja2, sqlalchemy, mariadb, docker, docker-compose, aws, langchain, ap
     - 쿼리스트링 : member라는 키워드로 부터 id=abc1234를 전달
     - 단점 : 주소창에 노출됨(패스워드 같은 보안)
     - 숨겨야하는 정보들(post 방식)
+
+### 2. DAO and DTO(VO)
+    - DAO(Data Access Object): CRUD 할 때 사용
+        + Create:   INSERT
+        + Read:     SELECT
+        + Update:   UPDATE
+        + Delete:   DELETE
+    - DTO(Data Transfer Object): 데이터를 전달할 때 사용
+
+### 3. 유효성(Validation) 체크
+    - 유효성체크는 사용자의 값이 올바른 값인지 체크
+        + 예: 이메일(이메일 형식인지?)
+    - 역사
+        1. 유효성체크: 서버 -> 과부하
+        2.             클라이언트(웹브라우저) -> JS (사용중)
+        3.             서버 추가 -> 더블 체크(pydantic)
 
 ### 카카오 나에게 톡 보내기
 - 인증코드 URL<Base> : https://kauth.kakao.com/oauth/authorize?client_id={REST API 키}&redirect_uri={Redirect URI}&response_type=code&scope=talk_message
