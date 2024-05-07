@@ -3,4 +3,4 @@ uvicorn[standard]
 jinja2
 requests
 pydantic[email]
-dotenv
+python-dotenv
