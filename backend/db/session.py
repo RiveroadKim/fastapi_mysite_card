@@ -11,6 +11,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 def get_db():
+    print(SQLACHEMY_DATABASE_URL)
     db = SessionLocal()
     try:
         yield db

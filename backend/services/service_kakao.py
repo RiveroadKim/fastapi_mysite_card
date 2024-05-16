@@ -1,8 +1,8 @@
 from backend.schemas.message import MessageDTO
-import os
+from backend.crud.crud_message import create_message
+from sqlalchemy.orm import Session
+import os, json, requests
 from dotenv import load_dotenv, find_dotenv
-import requests
-import json
 
 _ = load_dotenv(find_dotenv())
 url = "https://kauth.kakao.com/oauth/token"
@@ -71,8 +71,8 @@ class KakaoService:
         
     
     
-    # 나에게 카카오톡 보내기!
-    def send_message(self, msg: MessageDTO):
+  # Access Token을 사용해서 나에게 카카오톡 보내기 (나에게 카카오톡 보내기!)
+    def send_message(self, msg: MessageDTO, db: Session): # service 단을 만드는 이유 : 의존성 때문에(service 가 많아지면 너무 복잡해짐)
         
         # 1. 토큰 유무 체크
         # ./kakao_code.json -> Access_token, Refresh_token 저장
@@ -113,6 +113,7 @@ class KakaoService:
         
         
         # 3. DB에 저장
+        create_message(msg, db)
         
         # +. 스케줄러 등록(Refresh Token 재발급)
         #   - Refresh Token은 유효기간 2달
