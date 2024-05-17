@@ -5,6 +5,8 @@ from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from backend.routes import kakao
+from apscheduler.schedulers.background import BackgroundScheduler
+from backend.services.service_kakao import KakaoService
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates/") # Jinja2를 사용할 것이고 HTML파일은 templates 하위에 있다
@@ -16,3 +18,13 @@ app.include_router(kakao.router, prefix="/kakao")
 async def welcome(request : Request):
     return templates.TemplateResponse("index.html", {"request": request})   # client가 uvicorn에게 request한다 이때 Templates를 전달
 
+if __name__ == "__main__":
+    # 스케줄러
+    #   - 카카오톡 Refresh token을 재발급 받는 기능
+    #   - 매월 1일 동작
+    sched = BackgroundScheduler()
+    sched.add_job(KakaoService().refresh_access_token, "cron", day="1", hour="0", id="refresh_token")
+    sched.start()
+    
+    # 웹서버 동작!
+    uvicorn.run("main:app", host="0.0.0.0", port=5000, reload=True)
