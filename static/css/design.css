@@ -1,19 +1,23 @@
+body {
+    align-items: center;
+    height: 100vh;
+}
 .wrap {
     max-width: 120rem;
-    min-width: 32rem;
     display: flex;
     justify-content: center;
-    flex-direction: column;
     box-sizing: border-box;
     padding: 2.5rem 1rem;
     gap: 1rem;
+    flex-flow: row wrap;
+    align-content: flex-start;
 }
 .common_box {
+    width: 45rem;
     border-radius: 0.5rem;
     background-color: white;
     display: flex;
     overflow: hidden;
-    margin-bottom: 2.5rem;
     box-shadow: 0 0.4rem 1rem 0 rgba(0,0,0,0.2), 0 0.4rem 2rem 0 rgba(0,0,0,0.19);
 }
 
@@ -35,11 +39,11 @@
 .name_ko { font-size: 2.5rem; color: black; font-weight: bold;}
 .name_eng {font-size: 1.1rem; color: #a1a1a1;}
 .job {
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
     background: black;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    font-weight: bold; 
+    font-weight: bold;
     padding-top: 0.8rem;
     padding-bottom: 3rem;
 }
@@ -58,11 +62,11 @@
     gap: 0.8rem;
     font-size: 1.2rem;
 }
-.item_list > div {
+.item_list>div {
     display: flex;
     flex-direction: column;
 }
-.item_list > div > span {
+.item_list>div>span {
     padding-top: 0.8rem;
 }
 .item_type {
@@ -83,16 +87,16 @@
 /* SNS */
 
 .sns_btn:nth-child(1) {color: #2F3138;}
-.sns_btn:nth-child(2) {color: #FAE100;}
+.sns_btn:nth-child(2) {color: #0A66C2;}
 .sns_btn:nth-child(3) {color: #DA4536;}
-.sns_btn:nth-child(4) {color: #5865f2;}
+.sns_btn:nth-child(4) {color: #553424;}
 .sns_btn:nth-child(5) {color: #ff0000;}
 .sns_btn:nth-child(6) {color: #2F3138;}
 
 .sns_box {
     width: 45rem;
+    height: 8rem;
     padding: 1.5rem;
-
 }
 .middle {
     width: 100%;
@@ -102,6 +106,7 @@
 }
 .sns_btn {
     display: inline-block;
+    min-width: 4.5rem;
     width: 4.5rem;
     height: 4.5rem;
     background-color: #f1f1f1;
@@ -112,7 +117,7 @@
     text-align: center;
 }
 
-.sns_btn i {
+.sns_btni {
     line-height: 4.5rem;
     font-size: 2rem;
     transition: 0.2s linear;
@@ -121,7 +126,7 @@
 /* Skill */
 .info_box {padding: 0 1.5rem 1.5rem 1.5rem; flex-direction: column;}
 .sub_box {margin-top: 1.5rem;}
-.sub_title {font-size: 1.6rem; font-weight: bold; border-left: 0.4rem solid #2F3138; padding-left: 0.5rem;}
+.sub_title {margin-bottom: 1rem; font-size: 1.6rem; font-weight: bold; border-left: 0.4rem solid #2F3138; padding-left: 0.5rem;}
 .skill_box {width: 100%; font-size: 1.2rem;}
 .bar_wrap {margin-bottom: 1.5rem;}
 .skill_title {padding: 0 0 0.5rem 0.8rem;}
@@ -144,7 +149,7 @@
 }
 
 /* License */
-.item_sign > span {
+.item_sign>span {
     padding-left: 0.8rem;
 }
 
@@ -164,70 +169,67 @@
     cursor: pointer;
     box-shadow: 0 0.4rem 1rem 0 rgba(0,0,0,0.2), 0 0.4rem 2rem 0 rgba(0,0,0,0.19);
 }
-
-.fix_btn > i {
+.fix_btn>i {
     transition: transform .3s;
 }
-    
-.fix_btn:hover > i{
+.fix_btn:hover>i{
     animation: heartBeat 1.5s infinite;
 }
-
-.chatbot_btn, .chatbot_close_btn {
-    bottom: 10rem; 
+.chatbot_btn,.chatbot_close_btn {
+    bottom: 10rem;
     background-color: #10A37F;
 }
-    
-.kakao_btn, .kakao_close_btn {
+.kakao_btn,.kakao_close_btn {
     bottom: 3rem;
     background-color: #1E90FF;
 }
-    
 .top_btn {
     bottom: 17rem;
     background-color: #2F3138;
     display: none;
 }
-.chatbot_close_btn, .kakao_close_btn{
+.chatbot_close_btn,.kakao_close_btn {
     display: none;
 }
 
+
+
 /* Window for Chatbot and kakao */
 .window_wrap {
-	min-width: 39rem;
-	max-width: 39rem;
-	display: none;
-	position: fixed;
-	z-index: 990;
-	border-radius: 0.5rem;
-	right: 15rem;
-	bottom: 3rem;
-	box-shadow: 0 0.4rem 1rem 0 rgba(0,0,0,0.2), 0 0.4rem 2rem 0 rgba(0,0,0,0.19);
-	overflow: hidden;
+    min-width: 39rem;
+    max-width: 39rem;
+    display: none;
+    position: fixed;
+    z-index: 990;
+    border-radius: 0.5rem;
+    right: 15rem;
+    bottom: 3rem;
+    box-shadow: 0 0.4rem 1rem 0 rgba(0,0,0,0.2), 0 0.4rem 2rem 0 rgba(0,0,0,0.19);
+    overflow: hidden;
 }
 .window_title {
-	background-color: #2F3138;
-	color: white;
-	font-weight: bold;
-	padding: 0.7rem 0 0.7rem 1.5rem;
-	font-size: 1.8rem;
-	border-top-left-radius: 0.5rem;
-	border-top-right-radius: 0.5rem;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 3.5rem;
+    background-color: #2F3138;
+    color: white;
+    font-weight: bold;
+    padding: 0.7rem 0 0.7rem 1.5rem;
+    font-size: 1.8rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.5rem;
 }
-.msg_box{
+.msg_box {
     padding: 1.5rem;
 }
-.window_title span{
-	line-height: 3.5rem;
+.window_titlespan{
+    line-height: 3.5rem;
 }
-.window_title > div {
-	display: flex;
-	align-items: center;
-	gap: 3px;
+.window_title>div {
+    display: flex;
+    align-items: center;
+    gap: 3px;
 }
 .window_close_btn {
     justify-content: center;
@@ -238,127 +240,74 @@
 
 /* Kakao */
 .kakao_box {
-	background-color: white;
+    background-color: white;
 }
 #kakao_msg_box {
-	height: auto;
+    height: auto;
 }
 .kakao_msg_info {
-	font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 .kakao_input_area {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 .kakao_input_box {
-	border: 1px solid #2d2f31;
-	display: flex;
-	align-items: center;
-	position: relative;
+    border: 1px solid #2d2f31;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 .kakao_input {
-	width: 100%;
-	border: 0!important;
-	box-shadow: none!important;
-	outline: 0!important;
-	height: 6rem!important;
-	padding: 2rem 1.6rem 0;
-	transition: opacity 100ms linear;
-	font-size: 1.6rem;
-	opacity: 0;
+    width: 100%;
+    border: 0!important;
+    box-shadow: none!important;
+    outline: 0!important;
+    height: 6rem!important;
+    padding: 2rem 1.6rem 0;
+    transition: opacity 100ms linear;
+    font-size: 1.6rem;
+    opacity: 0;
 
 }
 .kakao_input_label {
-	width: 95%;
-	z-index: 100;
-	font-weight: bold;
-	font-size: 1.6rem;
-	left: .8rem;
-	position: absolute;
-	top: .8rem;
-	border: 1px solid transparent;
-	transform: translateY(1.2rem);
-	transform-origin: top left;
-	transition: all 150ms cubic-bezier(.2,0,.38,.9);
+    width: 95%;
+    z-index: 100;
+    font-weight: bold;
+    font-size: 1.6rem;
+    left: .8rem;
+    position: absolute;
+    top: .8rem;
+    border: 1px solid transparent;
+    transform: translateY(1.2rem);
+    transform-origin: top left;
+    transition: all 150ms cubic-bezier(.2,0,.38,.9);
 }
 
 #send_kakao_btn{
-	font-family: 'Nanum Gothic', sans-serif;
-	width: 100%;
-	text-align: center;
-	height: 4.5rem;
-	font-size: 1.6rem;
-	line-height: 2.4rem;
-	padding-top: 1.2rem;
-	padding-bottom: 1.2rem;
-	font-weight: bold;
-	display: flex;
-	border-radius: 0.4rem;
-	justify-content: center;
-	align-items: center;
-	color: #191919;
-	border: 0;
-	outline: none;
-	background: #FEE500;
-	cursor: pointer;
-	transition: all 0.1s ease;
-	text-align: center;
+    font-family: 'Nanum Gothic', sans-serif;
+    width: 100%;
+    text-align: center;
+    height: 4.5rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    border-radius: 0.4rem;
+    justify-content: center;
+    align-items: center;
+    color: #191919;
+    border: 0;
+    outline: none;
+    background: #FEE500;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 스마트폰
-	##Device = Most of the Smartphones Mobiles (Portrait)
-	##Device = 대부분의 스마트폰 모바일 기기(세로)
-	##Screen = 320px에서 768px 사이
-*/
-@media (min-width: 320px) and (max-width: 768px) {
-	.html, body { font-size: 50%;}
-    body { 	
-        width: 100vw;
-        height: 100vh;
-        align-items: center;
-    }
-	.wrap {transform: rotate(90deg);}
-    .sns_box, .info_box {display: none;}
-	
-}
 
 /* Chatbot */
 .chatbot_wrap {
@@ -403,10 +352,10 @@
     flex-direction: column;
     gap: 0.3rem;
 }
-.human_msg_box.chat_msg_date {
+.human_msg_box .chat_msg_date {
     text-align: right;
 }
-.human_msg_box.chat_msg_info {
+.human_msg_box .chat_msg_info {
     background-color: #f2e018;
 }
 .chat_msg_date {
@@ -455,4 +404,59 @@
 .msg_input>button>i {
     font-size: 1.6rem;
     color: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 스마트폰
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Device = 대부분의 스마트폰 모바일 기기(세로)
+    ##Screen = 320px에서 768px 사이
+*/
+@media (min-width: 320px) and (max-width: 768px) {
+    .html,body { font-size: 50%;}
+    body {  
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+    }
+    .wrap {transform: rotate(90deg);}
+    .sns_box,.info_box {display: none;}
+   
 }

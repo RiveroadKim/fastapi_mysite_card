@@ -11,7 +11,11 @@ pip freeze > requirements.txt
 2. uvicorn: WAS(웹 어플리케이션 서버)
 3. jinja2: 템플릿 엔진(HTML, CSS, JS)
 
-
+### router
+    /chat/
+    main.py -> http://127.0.0.1:8000
+    route/chat.py -> /chat
+    post("/") -> /
 
 ### Web 프로그래밍 기초 설명
 
@@ -90,3 +94,16 @@ pip freeze > requirements.txt
  3. 인증코드 사용해서 토큰(Access, Refresh) 발급
  4. Access 사용해서 서비스 이용!
  5. + 1달에 한번씩 Refresh 토큰 재발급 스케쥴링
+
+
+ ### LLM 모델 신기술: RAG(검색증강생성)
+
+ 기존 LLM 모델의 단점
+ 1. 최신 내용 반영 X -> 최신 내용 반영하도록 재학습(시간, 자원) / 비효율적
+ 
+RAG 방법
+ + 기존에 추가해야하는 내용 -> 임베딩 -> Vector DB에 저장
+ 1. 사용자 질문
+    -> 사용자 질문과 Vector DB에 있는 값들간의 유사도를 계산해서 비슷하게 내용을 추출
+    -> 추출한 내용과 사용자 질문을 함께 LLM 모델에 전달
+    -> LLM 모델이 Vector DB(질문과 유사한 값)에 있는 값을 활용해서 답변을 생성

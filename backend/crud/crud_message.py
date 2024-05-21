@@ -8,14 +8,14 @@ from sqlalchemy.orm import Session
 # Models - MessageORM   : ORM을 활용하기 위한 객체화 
 
 def create_message(msg: MessageDTO, db: Session):
-    # 객체생성 -> 생성자함수(ex:객체이름())
-    db_msg = MessageORM(
-        name=msg.name,
-        email=msg.email,
-        message=msg.message,
-        create_date=datetime.now()
-    )
-    # db -> Connection 된 session!
-    # db_msg -> 인스턴스(객체생성의 결과물)
-    db.add(db_msg)
-    db.commit()
+  # 객체생성 -> 생성자함수(ex:객체이름())
+  db_msg = MessageORM(
+    name=msg.name,
+    email=msg.email,
+    message=msg.message,
+    create_date=datetime.now()
+  )
+  # db -> Connection 된 session!
+  # db_msg -> 인스턴스(객체생성의 결과물)
+  db.add(db_msg)
+  db.commit()

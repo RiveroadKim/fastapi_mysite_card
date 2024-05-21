@@ -179,6 +179,7 @@ function moveScroll () {
 }   
 
 function send_chat_server(txt) {
+    // 입력창 clear
     document.querySelector("#send_chat_input").value = "";
 
     // 사용자 챗(질문) 출력
@@ -191,7 +192,7 @@ function send_chat_server(txt) {
     console.log(txt);
     if (txt.length > 0 || txt != "") {
         $.ajax({
-            url: "/chat/",
+            url: "/chat/",  // 127.0.0.1:8000/chat/
             data: JSON.stringify({"question": txt}),
             type: "POST",
             contentType: "application/json; charset=UTF-8",
