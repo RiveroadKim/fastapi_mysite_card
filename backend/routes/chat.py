@@ -6,9 +6,8 @@ router = APIRouter(
 )
 
 @router.post("/")   # http://127.0.0.1:8000/chat/
-async def send_message(chat: dict) -> dict:
+async def send_message(chat:dict) -> dict:
     print(f"전달 받은 챗: {chat}")
     
-    ChatService().send_chat(chat)
-    
-    return {"status": {"code": 200, "message": "success"}}
+    answer = ChatService().send_chat(chat)
+    return {"answer": answer}
